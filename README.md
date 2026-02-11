@@ -39,6 +39,11 @@ The floating assistant widget can send a question to the backend `POST /chat` en
 
 ## Architecture
 
+![Architecture](images/architecture.png)
+
+> Note: The diagram above is a static image for reliable rendering on all GitHub views.
+> The Mermaid version is kept below as a live/editable reference.
+
 ```mermaid
 flowchart LR
   U[User] -->|District / Soil / Water| F["React + Vite Frontend<br/>uzhavar-ai/"]
