@@ -41,10 +41,6 @@ The floating assistant widget can send a question to the backend `POST /chat` en
 
 ![Architecture](images/architecture.png)
 
-->|reply| F
-```
-
----
 
 ## Tech stack
 
