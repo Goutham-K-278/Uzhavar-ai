@@ -41,19 +41,7 @@ The floating assistant widget can send a question to the backend `POST /chat` en
 
 ![Architecture](images/architecture.png)
 
-> Note: The diagram above is a static image for reliable rendering on all GitHub views.
-> The Mermaid version is kept below as a live/editable reference.
-
-```mermaid
-flowchart LR
-  U[User] -->|District / Soil / Water| F["React + Vite Frontend<br/>uzhavar-ai/"]
-  F -->|Heuristic scoring| D["Local crop dataset<br/>src/data/crops.js"]
-
-  U -->|Ask question (text/voice)| F
-  F -->|POST /chat<br/>VITE_API_URL| B["Express Backend<br/>backend/"]
-  B -->|Google Generative AI SDK| G["Gemini model<br/>GEMINI_MODEL"]
-  G --> B
-  B -->|reply| F
+->|reply| F
 ```
 
 ---
