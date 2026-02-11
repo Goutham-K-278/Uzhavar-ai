@@ -1,0 +1,177 @@
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+
+const getStoredLanguage = () => {
+  if (typeof window === 'undefined') {
+    return null
+  }
+  return window.localStorage.getItem('preferredLanguage')
+}
+
+const resources = {
+  en: {
+    translation: {
+      heroTitle: 'Smart Crop & Market Intelligence',
+      heroSub: 'Personalized crop recommendations and selling insights for Tamil Nadu farmers.',
+      heroBadge: 'Uzhavar Intelligence',
+      startAnalysis: 'Start Analysis',
+      cropInput: 'Crop Input',
+      findBest: 'Find the best crops for your land',
+      district: 'District',
+      soilType: 'Soil Type',
+      waterAvailability: 'Water Availability',
+      districtNames: {
+        Coimbatore: 'Coimbatore',
+        Thanjavur: 'Thanjavur',
+        Madurai: 'Madurai',
+        Salem: 'Salem',
+        Erode: 'Erode',
+      },
+      soilNames: {
+        Red: 'Red Soil',
+        Clay: 'Clay Soil',
+        Loamy: 'Loamy Soil',
+      },
+      waterLevels: {
+        Low: 'Low',
+        Medium: 'Medium',
+        High: 'High',
+      },
+      generate: 'Generate Suggestions',
+      generating: 'Generating...',
+      recommended: 'Recommended Crops',
+      featureAI: 'AI Recommendations',
+      featureMarket: 'Market Timing',
+      featureTamil: 'Tamil Support',
+      submitPrompt: 'Submit your field details to see the best crop recommendations.',
+      profitLabel: '💰 Profit',
+      bestMonth: '📅 Best Month: {{month}}',
+      waterLabel: '💧 Water: {{amount}}',
+      profitTitle: 'Profit Potential',
+      bestMonthTitle: 'Best Month',
+      waterNeedTitle: 'Water Need',
+      expectedProfit: 'Expected Profit',
+      confidenceLabel: 'Confidence',
+      riskLabel: 'Risk level',
+      seasonLabel: 'Season recommendation',
+      reasonLabel: 'Why this crop?',
+      seasonFocusLabel: 'Season pivot',
+      moderateSuitability: 'Moderate suitability — fine-tune inputs or diversify fields.',
+      highProfit: 'High Profit',
+      agriIntelHeading: 'Tamil Nadu Agri Intelligence',
+      agriIntelSub: 'Localized improvement ideas to boost resilience and price realization.',
+      riskLevels: {
+        Low: 'Low risk',
+        Medium: 'Moderate risk',
+        High: 'High risk',
+      },
+      seasonNames: {
+        Kuruvai: 'Kuruvai',
+        Samba: 'Samba',
+        Navarai: 'Navarai',
+        Rabi: 'Rabi',
+        Summer: 'Summer',
+        Kharif: 'Kharif',
+        Annual: 'Year-round',
+      },
+      assistantTitle: 'Need quick guidance?',
+      assistantSubtitle: 'Ask our AI to suggest crops or market moves.',
+      assistantSpeak: 'Speak Tamil Insight',
+      assistantPlaceholder: 'Type a question...',
+      assistantClear: 'Clear',
+      assistantSend: 'Send Insight',
+      assistantThinking: 'Thinking...',
+      assistantVoice: 'Voice Input',
+      assistantListening: 'Listening...',
+      assistantError: 'Unable to reach the AI. Try again.'
+    },
+  },
+  ta: {
+    translation: {
+      heroTitle: 'ஸ்மார்ட் பயிர் மற்றும் சந்தை அறிவு',
+      heroSub: 'தமிழ்நாடு விவசாயிகளுக்கான தனிப்பயன் பரிந்துரைகள்.',
+      heroBadge: 'உழவர் நுண்ணறிவு',
+      startAnalysis: 'பரிசோதனை தொடங்கு',
+      cropInput: 'பயிர் உள்ளீடு',
+      findBest: 'உங்கள் நிலத்திற்கு சிறந்த பயிர்களை கண்டறியுங்கள்',
+      district: 'மாவட்டம்',
+      soilType: 'மண் வகை',
+      waterAvailability: 'தண்ணீர் கிடைப்பாடு',
+      districtNames: {
+        Coimbatore: 'கோயம்புத்தூர்',
+        Thanjavur: 'தஞ்சாவூர்',
+        Madurai: 'மதுரை',
+        Salem: 'சேலம்',
+        Erode: 'ஈரோடு',
+      },
+      soilNames: {
+        Red: 'சிவப்பு மண்',
+        Clay: 'களிமண்',
+        Loamy: 'லோமி மண்',
+      },
+      waterLevels: {
+        Low: 'குறைவு',
+        Medium: 'இடைநிலை',
+        High: 'அதிகம்',
+      },
+      generate: 'பரிந்துரைகள் உருவாக்கு',
+      generating: 'உருவாக்கப்படுகிறது...',
+      recommended: 'பரிந்துரைக்கப்பட்ட பயிர்கள்',
+      featureAI: 'ஏஐ பரிந்துரைகள்',
+      featureMarket: 'சந்தை நேரம்',
+      featureTamil: 'தமிழ் ஆதரவு',
+      submitPrompt: 'சிறந்த பயிர் பரிந்துரைகளைப் பார்க்க உங்கள் நில விவரங்களை அனுப்புங்கள்.',
+      profitLabel: '💰 லாபம்',
+      bestMonth: '📅 சிறந்த மாதம்: {{month}}',
+      waterLabel: '💧 நீர்: {{amount}}',
+      profitTitle: 'லாப வாய்ப்பு',
+      bestMonthTitle: 'சிறந்த மாதம்',
+      waterNeedTitle: 'நீர் தேவைகள்',
+      expectedProfit: 'எதிர்பார்க்கும் லாபம்',
+      confidenceLabel: 'நம்பிக்கை',
+      riskLabel: 'அபாய நிலை',
+      seasonLabel: 'பருவ பரிந்துரை',
+      reasonLabel: 'ஏன் இந்த பயிர்?',
+      seasonFocusLabel: 'பருவ கவனம்',
+      moderateSuitability: 'இடைநிலை பொருத்தம் — உள்ளீடுகளை மாற்றி அல்லது பல்வேறு பயிரிடலை முயற்சி செய்யவும்.',
+      highProfit: 'அதிக லாபம்',
+      agriIntelHeading: 'தமிழ்நாடு ஏக்ரி நுண்ணறிவு',
+      agriIntelSub: 'நிலைத்தன்மை மற்றும் விற்பனை மேம்பாட்டிற்கு உள்ளூர் யோஜனைகள்.',
+      riskLevels: {
+        Low: 'குறைந்த அபாயம்',
+        Medium: 'மிதமான அபாயம்',
+        High: 'அதிக அபாயம்',
+      },
+      seasonNames: {
+        Kuruvai: 'குருவை',
+        Samba: 'சம்பா',
+        Navarai: 'நவர்',
+        Rabi: 'ரபி',
+        Summer: 'கோடை',
+        Kharif: 'கரீஃப்',
+        Annual: 'ஆண்டு முழுவதும்',
+      },
+      assistantTitle: 'வழிகாட்டுதல் வேண்டுமா?',
+      assistantSubtitle: 'நமது ஏஐயிடம் பேசிப் பயிர் அல்லது சந்தை ஆலோசனை பெறுங்கள்.',
+      assistantSpeak: 'தமிழில் கூறு',
+      assistantPlaceholder: 'உங்கள் கேள்வியை எழுதுங்கள்...',
+      assistantClear: 'அழி',
+      assistantSend: 'அனுப்பு',
+      assistantThinking: 'சிந்திக்கிறது...',
+      assistantVoice: 'குரல் உள்ளீடு',
+      assistantListening: 'கேட்டு கொண்டிருக்கிறது...',
+      assistantError: 'ஏஐயுடன் இணைக்க முடியவில்லை. மீண்டும் முயற்சி செய்யுங்கள்.'
+    },
+  },
+}
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: getStoredLanguage() || 'en',
+  fallbackLng: 'en',
+  interpolation: {
+    escapeValue: false,
+  },
+})
+
+export default i18n

@@ -1,0 +1,27 @@
+# Dependencies
+**/node_modules/
+
+# Build outputs
+**/dist/
+**/build/
+**/.next/
+**/out/
+
+# Vite / tooling caches
+**/.vite/
+**/.cache/
+
+# Logs
+**/*.log
+
+# Environment files (keep secrets out of git)
+**/.env
+**/.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Coverage
+**/coverage/

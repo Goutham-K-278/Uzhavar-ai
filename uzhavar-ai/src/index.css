@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+
+:root {
+  color: #0f172a;
+  background-color: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Inter', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradientMove 8s ease infinite;
+}
+
+.hero-wave {
+  position: absolute;
+  inset: auto 0 0;
+  transform: translateY(40%);
+  pointer-events: none;
+}
+
+.hero-wave svg {
+  width: 140%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.3;
+  filter: blur(0.5px);
+}
+
+@keyframes paddy-wave {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate3d(-3%, -2%, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.25;
+  }
+}
+
+@keyframes paddy-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0);
+  }
+  100% {
+    transform: translate3d(0, -6%, 0);
+  }
+}
+
+.paddy-lines,
+.paddy-particles {
+  position: absolute;
+  inset: -15%;
+  pointer-events: none;
+}
+
+.paddy-lines {
+  background-image: repeating-linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15) 0,
+    rgba(255, 255, 255, 0.15) 1px,
+    transparent 1px,
+    transparent 60px
+  );
+  filter: blur(0.5px);
+  mix-blend-mode: screen;
+  animation: paddy-wave 16s ease-in-out infinite;
+}
+
+.paddy-particles {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18) 0, transparent 45%),
+    radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.14) 0, transparent 40%),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12) 0, transparent 35%);
+  filter: blur(1px);
+  animation: paddy-drift 20s ease-in-out infinite;
+}
