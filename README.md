@@ -41,13 +41,14 @@ The floating assistant widget can send a question to the backend `POST /chat` en
 
 ```mermaid
 flowchart LR
-  U[User] -->|District/Soil/Water| F[React + Vite Frontend\nuzhavar-ai/]
-  F -->|Heuristic scoring| D[Local crop dataset\nsrc/data/crops.js]
+  U[User] -->|District / Soil / Water| F["React + Vite Frontend<br/>uzhavar-ai/"]
+  F -->|Heuristic scoring| D["Local crop dataset<br/>src/data/crops.js"]
 
   U -->|Ask question (text/voice)| F
-  F -->|POST /chat\nVITE_API_URL| B[Express Backend\nbackend/]
-  B -->|Google Generative AI SDK| G[Gemini Model\n(GEMINI_MODEL)]
-  G --> B -->|reply| F
+  F -->|POST /chat<br/>VITE_API_URL| B["Express Backend<br/>backend/"]
+  B -->|Google Generative AI SDK| G["Gemini model<br/>GEMINI_MODEL"]
+  G --> B
+  B -->|reply| F
 ```
 
 ---
